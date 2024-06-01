@@ -1,5 +1,5 @@
-import MostLikedManga from "../../components/MostLikedManga/MostLikedManga";
-import MangaCategory from "../../components/MangaCategory/MangaCategory";
+import MostLikedManga from "../MostLikedManga/MostLikedManga";
+import MangaCategory from "../MangaCategory/MangaCategory";
 export default function RightSection() {
   return (
     <div className="xl:w-[30%] h-max">

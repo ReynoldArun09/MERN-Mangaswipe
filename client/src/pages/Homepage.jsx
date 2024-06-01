@@ -3,6 +3,7 @@ import HomepageSekeleton from "../components/Skeletons/HomepageSekeleton";
 
 const ComingSoon = lazy(() => import("../components/ComingSoon/ComingSoon"));
 const HeroSection = lazy(() => import("../components/HeroSection/HeroSection"));
+const OnGoingRelease = lazy(() => import("../components/OnGoingRelease/OnGoingRelease"));
 
 export default function Homepage() {
   return (
@@ -10,6 +11,7 @@ export default function Homepage() {
       <Suspense fallback={<HomepageSekeleton />}>
         <HeroSection />
         <ComingSoon />
+        <OnGoingRelease />
       </Suspense>
     </>
   );

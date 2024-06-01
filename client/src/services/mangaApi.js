@@ -36,3 +36,31 @@ export const GetMostLikedManga = async () => {
 
   return data;
 };
+
+
+export const GetOnGoingManga = async () => {
+  const response = await fetch(`${BASE_URL}/on-going`);
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error("Something went wrong!!");
+  }
+
+
+  return data;
+};
+
+
+export const GetOnGoingMangaList = async (page) => {
+  const response = await fetch(`${BASE_URL}/on-going-all?page=${page}`);
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error("Something went wrong!!");
+  }
+
+
+  return data;
+};

@@ -37,7 +37,7 @@ const categories = [
 export default function MangaCategory() {
   return (
     <section className="text-black dark:text-white mt-4 mb-8 xl:mt-8 xl:w-[100%]">
-      <CustomSideHeader title={"Popular"}/>
+      <CustomSideHeader title={"Popular"} />
       <div className="text-black text-center mx-auto w-[90%]">
         <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold cursor-pointer ml-4">
           {categories?.map((category) => (

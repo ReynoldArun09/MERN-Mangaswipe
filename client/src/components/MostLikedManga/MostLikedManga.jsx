@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { GetMostLikedManga } from "../../services/mangaApi";
 import { useQuery } from "@tanstack/react-query";
-import CustomSeparator from '../Custom/CustomSeparator'
+import CustomSeparator from "../Custom/CustomSeparator";
 import CustomSideHeader from "../Custom/CustomSideHeader";
 export default function MostLikedManga() {
   const { data: LikedMangaData } = useQuery({
@@ -11,7 +11,7 @@ export default function MostLikedManga() {
 
   return (
     <section className="text-black dark:text-white mt-4 mb-8 xl:mt-8 xl:w-[100%]">
-      <CustomSideHeader title={"Trending Manga"}/>
+      <CustomSideHeader title={"Trending Manga"} />
       {LikedMangaData?.map((list, index) => {
         const { _id, mangaImageUrl, mangaTitle, likes } = list;
         const newLikes = likes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

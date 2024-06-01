@@ -5,6 +5,7 @@ import { useState } from "react";
 import CustomSeparator from "../../components/Custom/CustomSeparator";
 
 export default function LeftSection() {
+ 
   const [page, setPage] = useState(1);
   const { data: ComingSoonDataList } = useQuery({
     queryKey: ["coming-soon-all"],
