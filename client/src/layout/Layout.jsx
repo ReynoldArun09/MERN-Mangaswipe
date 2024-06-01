@@ -6,7 +6,7 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <main>
+      <main className="container mx-auto">
         <Outlet />
       </main>
       <Footer />
