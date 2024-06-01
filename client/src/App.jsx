@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "./layout/Layout";
 import Homepage from "./pages/Homepage";
 import ComingSoonpage from "./pages/ComingSoonpage/ComingSoonpage";
+import PageNotFoundpage from "./pages/PageNotFoundpage";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
           <Route index element={<Homepage />} />
           <Route path="/coming-soon" element={<ComingSoonpage />} />
         </Route>
+        <Route path="*" element={<PageNotFoundpage />} />
       </Routes>
     </>
   );

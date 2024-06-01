@@ -23,3 +23,16 @@ export const GetComingSoonMangaList = async (page) => {
 
   return data;
 };
+
+
+export const GetMostLikedManga = async () => {
+  const response = await fetch(`${BASE_URL}/most-liked`);
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error("Something went wrong!!");
+  }
+
+  return data;
+};
