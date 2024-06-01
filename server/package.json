@@ -1,0 +1,29 @@
+{
+  "name": "mangaswipe-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "build": "npm install"
+  },
+  "keywords": [
+    "express",
+    "mongodb",
+    "mongoose",
+    "nodemon"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.2"
+  }
+}
