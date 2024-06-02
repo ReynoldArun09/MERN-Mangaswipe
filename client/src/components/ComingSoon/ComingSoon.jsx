@@ -10,7 +10,7 @@ export default function ComingSoon() {
   });
 
   return (
-    <section>
+    <section className="py-10">
       <CustomTitle title={"Coming Soon"} link={"coming-soon"} />
       <div className="bg-white dark:bg-black drop-shadow-lg rounded-lg">
         {ComingSoonData?.map((data) => (

@@ -16,7 +16,7 @@ export default function OngoingRelease() {
 
 
   return (
-    <section>
+    <section className="py-10">
       <CustomTitle title={"New OnGoing Release"} link={"on-going"}/>
       {OnGoingData &&
         OnGoingData.slice(0, pages)?.map((data) => {

@@ -157,3 +157,43 @@ export const GetMostPopularMangaList = async (page) => {
 
   return data;
 };
+
+
+export const GetSingleManga = async (id) => {
+  const response = await fetch(`${BASE_URL}/single/${id}`);
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error("Something went wrong!!");
+  }
+
+
+  return data;
+};
+
+
+export const GetMangaByTitle = async (title) => {
+  const response = await fetch(`${BASE_URL}/mangas/${title}`);
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error("Something went wrong!!");
+  }
+
+  return data;
+};
+
+
+export const SearchManga = async (searchTerm) => {
+  const response = await fetch(`${BASE_URL}/mangas/search?searchTerm=${searchTerm}`);
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error("Something went wrong!!");
+  }
+
+  return data;
+};

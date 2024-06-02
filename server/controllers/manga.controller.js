@@ -88,7 +88,6 @@ export const AllOnGoingManga = AsyncWrapper(async (req, res) => {
   return res.status(200).json(mangas);
 });
 
-
 /**
  * Api = most read manga api
  * sort by views
@@ -113,7 +112,6 @@ export const MostReadManga = AsyncWrapper(async (req, res) => {
  * http://localhost:3000/api/v1/manga/most-read-all
  */
 
-
 export const MostReadMangaAll = AsyncWrapper(async (req, res) => {
   const page = parseInt(req.query.page) || 1;
   const limit = 20;
@@ -125,7 +123,6 @@ export const MostReadMangaAll = AsyncWrapper(async (req, res) => {
 
   return res.status(200).json(mangas);
 });
-
 
 /**
  * Api = most recommended manga api
@@ -143,7 +140,6 @@ export const MostRecommendedManga = AsyncWrapper(async (req, res) => {
 
   return res.status(200).json(mangas);
 });
-
 
 /**
  * Api = all most recommended manga api
@@ -164,7 +160,6 @@ export const MostRecommendedMangaAll = AsyncWrapper(async (req, res) => {
 
   return res.status(200).json(mangas);
 });
-
 
 /**
  * Api = most recent manga api
@@ -191,7 +186,6 @@ export const MostRecentManga = AsyncWrapper(async (req, res) => {
  * http://localhost:3000/api/v1/manga/most-recent-all
  */
 
-
 export const MostRecentMangaAll = AsyncWrapper(async (req, res) => {
   const page = parseInt(req.query.page) || 1;
   const limit = 20;
@@ -203,7 +197,6 @@ export const MostRecentMangaAll = AsyncWrapper(async (req, res) => {
 
   return res.status(200).json(mangas);
 });
-
 
 /**
  * Api = most popular manga api
@@ -217,7 +210,7 @@ export const MostPopularManga = AsyncWrapper(async (req, res) => {
   const mangas = await Manga.find()
     .sort({ modifiedManga: -1 })
     .limit(5)
-    .select({ mangaTitle: 1, mangaImageUrl: 1, status: 1, description: 1, likes:1 });
+    .select({ mangaTitle: 1, mangaImageUrl: 1, status: 1, description: 1, likes: 1 });
 
   return res.status(200).json(mangas);
 });
@@ -230,15 +223,69 @@ export const MostPopularManga = AsyncWrapper(async (req, res) => {
  * http://localhost:3000/api/v1/manga/most-popular-all
  */
 
-
 export const MostPopularMangaAll = AsyncWrapper(async (req, res) => {
   const page = parseInt(req.query.page) || 1;
   const limit = 20;
   const mangas = await Manga.find({ rating: { $gte: 4 } })
     .sort({ rarting: -1 })
     .skip((page - 1) * limit)
-    .select({ mangaTitle: 1, mangaImageUrl: 1, chapters: 1, description: 1, likes:1 })
+    .select({ mangaTitle: 1, mangaImageUrl: 1, chapters: 1, description: 1, likes: 1 })
     .limit(limit);
 
   return res.status(200).json(mangas);
+});
+
+
+/**
+ * Api = search manga api
+ * limit 5
+ * returns only mangatitle, likes, mangaimageurl
+ * http://localhost:3000/api/v1/manga/mangas/search
+ */
+
+
+export const SearchMangas = AsyncWrapper(async (req, res) => {
+  let Mangaregex = new RegExp(`^${req.query.searchTerm}`, "ig");
+  const mangas = await Manga.find({ mangaTitle: { $regex: Mangaregex } })
+    .limit(5)
+    .select({ mangaTitle: 1, likes: 1, mangaImageUrl: 1 });
+
+  return res.status(200).json(mangas);
+});
+
+/**
+ * Api = single manga by id api
+ * returns only mangatitle, description, mangaimagurl, chapters, type, genre, rating, likes, artist, status
+ * http://localhost:3000/api/v1/manga/single/:id
+ */
+
+
+export const GetSingleManga = AsyncWrapper(async (req, res) => {
+  const {id }= req.params
+  const manga = await Manga.findById({_id: id}).select({
+    mangaTitle: 1,
+    mangaImageUrl: 1,
+    type: 1,
+    status: 1,
+    chapters: 1,
+    description: 1,
+    genre: 1,
+    rating: 1,
+    likes: 1,
+    artist: 1,
+  });
+  return res.status(200).json(manga);
+});
+
+/**
+ * Api = single manga by title api
+ * returns only chapters
+ * http://localhost:3000/api/v1/manga/mangas/:title
+ */
+
+
+export const GetMangaByTitle = AsyncWrapper(async (req, res) => {
+  const { title } = req.params;
+  const manga = await Manga.find({ "chapters.chapterTitle": title }).select({ chapters: 1 });
+  return res.status(200).json(manga);
 });

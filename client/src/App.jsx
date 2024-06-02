@@ -13,6 +13,8 @@ import Contactpage from './pages/Contactpage'
 import Dcmapage from './pages/Dmcapage'
 import Termspage from './pages/Termspage'
 import Privacypage from './pages/Privacypage'
+import Manga from './pages/Manga/Manga'
+import MangaChapter from './pages/MangaChapter/MangaChapter'
 
 
 export default function App() {
@@ -27,6 +29,8 @@ export default function App() {
           <Route path="/popular-mangas" element={<Popularpage />} />
           <Route path="/most-read" element={<MostReadMangapage />} />
           <Route path="/most-recommended" element={<Recommendedpage />} />
+          <Route path="/manga/chapter/:title" element={<Manga />} />
+          <Route path="/manga/:id/chapter" element={<MangaChapter />} />
           <Route path="/about" element={<Aboutpage />} />
           <Route path="/contact" element={<Contactpage />} />
           <Route path="/dcma" element={<Dcmapage />} />

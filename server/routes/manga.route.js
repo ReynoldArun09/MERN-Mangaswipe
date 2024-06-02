@@ -2,6 +2,7 @@ import { Router } from "express";
 import * as manga from "../controllers/manga.controller.js";
 
 const MangaRoutes = Router();
+
 MangaRoutes.get("/coming-soon", manga.ComingSoonManga);
 MangaRoutes.get("/coming-soon-all", manga.AllComingSoonManga);
 MangaRoutes.get("/most-liked", manga.MostLikedManga);
@@ -15,5 +16,8 @@ MangaRoutes.get("/most-recent", manga.MostRecentManga);
 MangaRoutes.get("/most-recent-all", manga.MostRecentMangaAll);
 MangaRoutes.get("/most-popular", manga.MostPopularManga);
 MangaRoutes.get("/most-popular-all", manga.MostPopularMangaAll);
+MangaRoutes.get("/single/:id", manga.GetSingleManga)
+MangaRoutes.get("/mangas/search", manga.SearchMangas)
+MangaRoutes.get("/mangas/:title", manga.GetMangaByTitle);
 
 export default MangaRoutes;
