@@ -1,13 +1,9 @@
-import {Helmet} from 'react-helmet-async'
+import CustomHelmet from '../components/Custom/CustomHelmet'
 
 export default function Termspage() {
   return (
     <>
-    <Helmet>
-        <title>Manga Swipe - Terms Of Usage</title>
-        <link rel="canonical" href="/terms-of-service" />
-        <meta name="description" content="website for reading latest manga" />
-    </Helmet>
+    <CustomHelmet title="Manga Swipe - Terms of Usage" href="/terms" />
     <section className="text-white w-[85%] xl:w-[70%] mx-auto mb-8 space-y-10">
       <h1 className="text-center text-3xl my-4">Terms Of Usage &rarr;</h1>
       <div>

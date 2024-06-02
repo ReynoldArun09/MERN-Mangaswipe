@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import CustomHelemt from '../../components/Custom/CustomHelmet'
 import { useState } from "react";
 import StarRating from "../../components/Common/StarRating";
 import { Link } from "react-router-dom";
@@ -19,7 +19,7 @@ export default function MangaChapter() {
 
     const StatusCheck = () => {
         if (manga.status === "Ongoing") {
-          return "bg-[#EFC416] text-black rounded-sm mt-2 w-[120px] font-bold";
+          return "bg-manga-yellow text-black rounded-sm mt-2 w-[120px] font-bold";
         } else if (manga.status === "Completed") {
           return "bg-green-700 text-black rounded-sm mt-2 w-[120px] font-bold";
         } else if (manga.status === "Dropped") {
@@ -35,11 +35,7 @@ export default function MangaChapter() {
     <section className="bg-white text-black dark:bg-[#131415] dark:text-white text-center h-full lg:text-left pt-[45px]">
       {manga && (
         <>
-          <Helmet>
-            <title>Manga Swipe - {manga.mangaTitle}</title>
-            <link rel="canonical" href={`/manga/${manga._id}/chapter`} />
-            <meta name="description" content="website for reading latest manga" />
-          </Helmet>
+          <CustomHelemt title={`Manga Swipe - ${manga.mangaTitle}`} href={`/manga/${manga._id}/chapter`}/>
           <div key={manga._id} className="lg:flex">
             <div className="lg:w-[50%] xl:w-[40%] ml-auto">
               <img src={manga.mangaImageUrl} alt="" className="w-[295px] h-[435px] mx-auto" />
@@ -85,7 +81,7 @@ export default function MangaChapter() {
               <input
                 type="text"
                 placeholder="Search Chapter By Number"
-                className="font-bold pl-5 w-[310px] rounded-sm text-sm h-[30px] focus:ring focus:ring-[#EFC416] text-black focus:outline-none md:w-[480px] lg:w-[650px] border border-black"
+                className="font-bold pl-5 w-[310px] rounded-sm text-sm h-[30px] focus:ring focus:ring-manga-yellow text-black focus:outline-none md:w-[480px] lg:w-[650px] border border-black"
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>

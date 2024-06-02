@@ -1,13 +1,9 @@
-import {Helmet} from 'react-helmet-async'
+import CustomHelmet from '../components/Custom/CustomHelmet'
 
 export default function Dmcapage() {
   return (
     <>
-    <Helmet>
-        <title>Manga Swipe - DCMA NOTICE</title>
-        <link rel="canonical" href="/dcma" />
-        <meta name="description" content="website for reading latest manga" />
-    </Helmet>
+    <CustomHelmet title="Manga Swipe - DMCA NOTICE" href="/dcma" />
     <section className='text-white w-[85%] xl:w-[70%] mx-auto mb-8'>
       <h1 className="text-center text-3xl my-4">DMCA NOTICE</h1>
       <div className="my-[25px]">

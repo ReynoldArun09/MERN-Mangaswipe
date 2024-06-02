@@ -1,25 +1,19 @@
 import { Link } from "react-router-dom";
-import CustomTitle from "../Custom/CustomTitle";
+import CustomWrapper from "../Custom/CustomWrapper";
 import { GetOnGoingManga } from "../../services/mangaApi";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-
 export default function OngoingRelease() {
   const [pages, setPages] = useState(5);
-  const { data: OnGoingData} = useQuery({
+  const { data: OnGoingData } = useQuery({
     queryKey: ["on-going"],
     queryFn: GetOnGoingManga,
   });
 
-
-
-
   return (
-    <section className="py-10">
-      <CustomTitle title={"New OnGoing Release"} link={"on-going"}/>
-      {OnGoingData &&
-        OnGoingData.slice(0, pages)?.map((data) => {
+    <CustomWrapper title={"New OnGoing Release"} link={"on-going"}>
+      {OnGoingData && OnGoingData.slice(0, pages)?.map((data) => {
           return (
             <Link to={`/manga/${data._id}/chapter`} key={data._id}>
               <>
@@ -63,6 +57,6 @@ export default function OngoingRelease() {
           Load Less
         </button>
       </div>
-    </section>
+    </CustomWrapper>
   );
 }

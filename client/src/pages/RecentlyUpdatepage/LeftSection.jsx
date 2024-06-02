@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { GetMostRecentMangaList } from "../../services/mangaApi";
 import { useState } from "react";
 import CustomSeparator from "../../components/Custom/CustomSeparator";
+import CustomPageWrapper from "../../components/Custom/CustomPageWrapper";
 
 export default function LeftSection() {
  
@@ -13,8 +14,7 @@ export default function LeftSection() {
   });
 
   return (
-    <section className="lg:w-[80%] text-center">
-      <h1 className="text-5xl my-[25px]">Most Recently Updated</h1>
+    <CustomPageWrapper title="Recently Updated Mangas">
       <CustomSeparator />
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 my-[25px] min-h-[70vh]">
         {MostRecentData?.map((data) => (
@@ -37,6 +37,6 @@ export default function LeftSection() {
             Next <i className="fa-solid fa-circle-arrow-right"></i>
           </button>
         </div>
-    </section>
+    </CustomPageWrapper>
   );
 }

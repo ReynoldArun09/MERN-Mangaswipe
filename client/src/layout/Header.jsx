@@ -6,25 +6,7 @@ import Search from '../components/Search/Search';
 import {useQuery} from '@tanstack/react-query'
 import {SearchManga} from '../services/mangaApi'
 import useDebounce from '../hooks/useDebounce';
-
-const NavLinks = [
-  {
-    link: "/",
-    title: "Home",
-  },
-  {
-    link: "/",
-    title: "mobile App",
-  },
-  {
-    link: "/",
-    title: "Join Discord",
-  },
-  {
-    link: "/",
-    title: "Request A Scan",
-  },
-];
+import { NavLinks } from '../utils/data';
 
 
 export default function Header() {

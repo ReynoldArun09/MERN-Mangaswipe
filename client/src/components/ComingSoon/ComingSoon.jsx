@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import CustomTitle from "../Custom/CustomTitle";
 import { useQuery } from "@tanstack/react-query";
 import { GetComingSoonManga } from "../../services/mangaApi";
+import CustomWrapper from "../Custom/CustomWrapper";
 
 export default function ComingSoon() {
   const { data: ComingSoonData } = useQuery({
@@ -10,8 +10,7 @@ export default function ComingSoon() {
   });
 
   return (
-    <section className="py-10">
-      <CustomTitle title={"Coming Soon"} link={"coming-soon"} />
+    <CustomWrapper title={"Coming Soon"} link={"coming-soon"}>
       <div className="bg-white dark:bg-black drop-shadow-lg rounded-lg">
         {ComingSoonData?.map((data) => (
           <Link to={`/manga/${data._id}/chapter`} key={data._id}>
@@ -25,6 +24,6 @@ export default function ComingSoon() {
           </Link>
         ))}
       </div>
-    </section>
+    </CustomWrapper>
   );
 }

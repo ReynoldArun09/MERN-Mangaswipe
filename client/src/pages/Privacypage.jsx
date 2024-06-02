@@ -1,13 +1,9 @@
-import {Helmet} from 'react-helmet-async'
+import CustomHelmet from '../components/Custom/CustomHelmet'
 
 export default function Privacypage() {
   return (
     <>
-    <Helmet>
-        <title>Manga Swipe - Privacy Policy</title>
-        <link rel="canonical" href="/privacy-policy" />
-        <meta name="description" content="website for reading latest manga" />
-    </Helmet>
+    <CustomHelmet title="Manga Swipe - Privacy" href="/privacy" />
     <section className="text-white w-[85%] xl:w-[70%] mx-auto mb-8 space-y-10">
       <div>
       <h1 className="text-3xl my-4">Privacy Policy &rarr;</h1>

@@ -3,6 +3,7 @@ import CustomCard from "../../components/Custom/CustomCard";
 import { GetOnGoingMangaList } from "../../services/mangaApi";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import CustomPageWrapper from "../../components/Custom/CustomPageWrapper";
 
 export default function LeftSection() {
   const [page, setPage] = useState(1);
@@ -12,9 +13,8 @@ export default function LeftSection() {
   });
 
   return (
-    <section className="lg:w-[80%] text-center">
-      <h1 className="text-5xl my-[25px]">On Going Manga</h1>
-      <CustomSeparator />
+    <CustomPageWrapper title={"On Going Mangas"}>
+       <CustomSeparator />
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 my-[25px] min-h-[70vh]">
         {ongoingData?.map((data) => (
           <CustomCard data={data} key={data._id} />
@@ -33,6 +33,6 @@ export default function LeftSection() {
           Next <i className="fa-solid fa-circle-arrow-right"></i>
         </button>
       </div>
-    </section>
+    </CustomPageWrapper>
   );
 }

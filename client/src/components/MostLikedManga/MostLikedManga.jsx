@@ -10,8 +10,7 @@ export default function MostLikedManga() {
   });
 
   return (
-    <section className="text-black dark:text-white mt-4 mb-8 xl:mt-8 xl:w-[100%]">
-      <CustomSideHeader title={"Trending Manga"} />
+    <CustomSideHeader title={"Hottest Manga"}>
       {LikedMangaData?.map((list, index) => {
         const { _id, mangaImageUrl, mangaTitle, likes } = list;
         const newLikes = likes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -33,6 +32,6 @@ export default function MostLikedManga() {
           </Link>
         );
       })}
-    </section>
+    </CustomSideHeader>
   );
 }

@@ -1,14 +1,10 @@
-import { Helmet } from "react-helmet-async";
+import CustomHelmet from '../components/Custom/CustomHelmet'
 import { Link } from "react-router-dom";
 
 export default function PageNotFoundpage() {
   return (
     <>
-      <Helmet>
-        <title>Manga Swipe - Page Not Found</title>
-        <link rel="canonical" href="/404" />
-        <meta name="description" content="website for reading latest manga" />
-      </Helmet>
+      <CustomHelmet title="Manga Swipe - Page Not Found" href="/404" />
       <section className="text-black flex dark:text-white h-screen">
         <div className="mx-auto w-[90%] m-auto text-center space-y-8 px-4 h-[50%]">
           <h1 className="text-7xl">

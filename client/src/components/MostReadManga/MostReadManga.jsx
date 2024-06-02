@@ -1,4 +1,4 @@
-import CustomTitle from "../Custom/CustomTitle";
+import CustomWrapper from "../Custom/CustomWrapper";
 import { useQuery } from "@tanstack/react-query";
 import { GetMostReadManga } from "../../services/mangaApi";
 import SideFrame from "../Common/SideFrame";
@@ -11,12 +11,11 @@ export default function MostReadManga() {
   });
 
   return (
-    <section>
-      <CustomTitle title={"Most Read Manga"} link={"most-read"}/>
+    <CustomWrapper title={"Most Read Manga"} link={"most-read"}>
       <div className="bg-manga-yellow rounded-lg text-black dark:text-white lg:flex">
         <SideFrame data={mostreadData} />
         <SideGrid data={mostreadData} />
       </div>
-    </section>
+    </CustomWrapper>
   );
 }

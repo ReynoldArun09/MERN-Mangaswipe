@@ -1,8 +1,8 @@
-import {Helmet} from 'react-helmet-async'
 import {useNavigate, useParams} from 'react-router-dom'
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import {GetMangaByTitle} from '../../services/mangaApi'
+import CustomHelmet from '../../components/Custom/CustomHelmet'
 
 export default function Manga() {
   let { title } = useParams();
@@ -19,22 +19,17 @@ export default function Manga() {
 
   return (
     <>
-    <Helmet>
-      <title>Manga Swipe - {title}</title>
-      <link rel="canonical" href={`/manga/chapter/${title}`} />
-      <meta name="description" content="website for reading latest manga" />
-    </Helmet>
+    <CustomHelmet title={`Manga Swipe - ${title}`} href={`/manga/chapter/${title}`}/>
     <section className="bg-[#131415] dark:bg-white py-8">
       <h1 className="text-center text-4xl font-bold text-white dark:text-black">{title}</h1>
       <div className="flex justify-center text-white my-10 mx-auto w-[90%] lg:w-[60%] xl:w-[50%] 2xl:w-[45%]">
         <div className="lg:space-x-4">
-          {manga &&
-            manga.map((chapter) => {
+          {manga?.map((chapter) => {
               nextchapter = chapter.chapters[index];
               nextchapter.chapterTitle;
             })}
           <button
-            className="w-[120px] text-black h-[30px] rounded-full bg-[#EFC416] my-2 cursor-pointer"
+            className="w-[120px] text-black h-[30px] rounded-full bg-manga-yellow my-2 cursor-pointer"
             onClick={() => {
               index > 0 ? setIndex(index - 1) : setIndex((index = 0)), navigate(`/manga/chapter/${newTitle}`);
             }}
@@ -42,7 +37,7 @@ export default function Manga() {
             Prev
           </button>
           <button
-            className="w-[120px] text-black h-[30px] rounded-full bg-[#EFC416] my-2 cursor-pointer"
+            className="w-[120px] text-black h-[30px] rounded-full bg-manga-yellow my-2 cursor-pointer"
             onClick={() => {
               setIndex(index + 1), navigate(`/manga/chapter/${newTitle}`);
             }}
@@ -82,7 +77,7 @@ export default function Manga() {
             newTitle = nextchapter.chapterTitle;
           })}
         <button
-          className="w-[120px] text-black h-[30px] rounded-full bg-[#EFC416] my-2 cursor-pointer"
+          className="w-[120px] text-black h-[30px] rounded-full bg-manga-yellow my-2 cursor-pointer"
           onClick={() => {
             index > 0 ? setIndex(index - 1) : setIndex((index = 0)), navigate(`/manga/chapter/${newTitle}`);
           }}
@@ -90,7 +85,7 @@ export default function Manga() {
           Prev
         </button>
         <button
-          className="w-[120px] text-black h-[30px] rounded-full bg-[#EFC416] my-2 cursor-pointer"
+          className="w-[120px] text-black h-[30px] rounded-full bg-manga-yellow my-2 cursor-pointer"
           onClick={() => {
             setIndex(index + 1), navigate(`/manga/chapter/${newTitle}`);
           }}

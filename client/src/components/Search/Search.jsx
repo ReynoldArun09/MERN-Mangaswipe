@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Search({data}) {
   return (
-    <section className="bg-[#FFFFFF] drop-shadow-2xl z-50 absolute sm:left-0 lg:left-[60%] 2xl:left-[70%] lg:mt-0 mt-14 ml-6 lg:ml-0 top-full lg:w-[350px] md:w-[500px] h-fit text-black dark:text-white dark:bg-black">
+    <section className="bg-manga-white drop-shadow-2xl z-50 absolute sm:left-0 lg:left-[60%] 2xl:left-[70%] lg:mt-0 mt-14 ml-6 lg:ml-0 top-full lg:w-[350px] md:w-[500px] h-fit text-black dark:text-white dark:bg-black">
       {data &&
         data.map((swt) => {
           const {_id, mangaImageUrl, mangaTitle, likes, status} = swt
