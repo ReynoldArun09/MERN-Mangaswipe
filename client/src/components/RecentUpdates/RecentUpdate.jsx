@@ -1,8 +1,8 @@
 import CustomTitle from "../Custom/CustomTitle";
 import { useQuery } from "@tanstack/react-query";
 import { GetMostRecentManga } from "../../services/mangaApi";
-import SideFrame from "./SideFrame";
-import MostUpdateGrid from './RecentUpdateGrid'
+import SideFrame from "../Common/SideFrame";
+import SideGrid from "../Common/SideGrid";
 
 export default function RecentUpdates() {
   const { data: mostrecentData } = useQuery({
@@ -13,10 +13,12 @@ export default function RecentUpdates() {
   return (
     <section>
       <CustomTitle title={"Recent Updates"} link={"recent-update"}/>
-      <div className="pt-1 lg:pt-0 text-black dark:text-white mt-8 md:flex md:w-[90%] mx-auto rounded-lg lg:w-[85%] xl:w-[100%] bg-manga-yellow">
+      <div className="bg-manga-yellow rounded-lg text-black dark:text-white lg:flex">
         <SideFrame data={mostrecentData} />
-        <MostUpdateGrid data={mostrecentData} />
+        <SideGrid data={mostrecentData} />
       </div>
     </section>
   );
 }
+
+

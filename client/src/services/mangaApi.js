@@ -145,3 +145,15 @@ export const GetMostPopularManga = async () => {
 
   return data;
 };
+
+export const GetMostPopularMangaList = async (page) => {
+  const response = await fetch(`${BASE_URL}/most-popular-all?${page}`);
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error("Something went wrong!!");
+  }
+
+  return data;
+};

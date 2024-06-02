@@ -6,32 +6,29 @@ import { Link } from 'react-router-dom';
 export default function MostRecommendedManga() {
 
   const { data: mostrecommendedData } = useQuery({
-    queryKey: ["most-popular"],
+    queryKey: ["most-recommend"],
     queryFn: GetMostRecommendedMangas,
   });
 
 
   return (
-    <section>
+    <section className='py-10'>
     <CustomTitle title={"Most Recommended"} link={'most-recommended'}/>
-    <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+    <div className="flex justify-between items-center flex-wrap">
       {mostrecommendedData?.map((manga) => {
           const { mangaImageUrl, mangaTitle, _id, likes } = manga;
           const newLikes = likes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
           return (
-            <div className="text-center mx-auto w-[160px]" key={_id}>
+            <div key={_id} className='w-[150px] md:w-[200px] text-center'>
               <Link to={`/manga/${_id}/chapter`}>
-                <img
+              <img
                   src={mangaImageUrl}
                   alt={mangaTitle}
                   className="w-44 h-64 rounded-md hover:scale-x-105 hover:scale-y-105"
                 />
-                <div className="text-black dark:text-white space-y-1" key={_id}>
-                  <h2 className="text-sm line-clamp-2 my-1">{mangaTitle}</h2>
-                  <h3 className="text-sm font-bold">
-                    <i className="fa-solid fa-thumbs-up mr-1"></i>
-                    {newLikes}
-                  </h3>
+                <div className='text-sm font-bold'>
+                  <h1 className='w-[180px] mt-2'>{mangaTitle}</h1>
+                  <p><i className="fa-solid fa-thumbs-up mr-1"></i> {newLikes}</p>
                 </div>
               </Link>
             </div>

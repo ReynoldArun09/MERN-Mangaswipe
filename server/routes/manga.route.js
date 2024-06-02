@@ -7,7 +7,6 @@ MangaRoutes.get("/coming-soon-all", manga.AllComingSoonManga);
 MangaRoutes.get("/most-liked", manga.MostLikedManga);
 MangaRoutes.get("/on-going", manga.OnGoingManga);
 MangaRoutes.get("/on-going-all", manga.AllOnGoingManga);
-
 MangaRoutes.get("/most-read", manga.MostReadManga);
 MangaRoutes.get("/most-read-all", manga.MostReadMangaAll);
 MangaRoutes.get("/most-recommended", manga.MostRecommendedManga);

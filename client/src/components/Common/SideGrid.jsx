@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function RecentUpdateGrid({ data }) {
+export default function SideGrid({data}) {
   return (
     <div className="rounded-lg grid grid-cols-3 text-sm w-[90%] mx-auto my-4 text-black">
       {data?.map((mostrecent) => {
@@ -19,5 +19,5 @@ export default function RecentUpdateGrid({ data }) {
         );
       })}
     </div>
-  );
+  )
 }

@@ -20,7 +20,9 @@ export default {
       colors: {
         "manga-yellow": "#EFC416",
         "manga-white": "#FFFFFF",
-        "manga-black": "#313131"
+        "manga-black": "#313131",
+        "manga-lightwhite": "#F3F4F6",
+        "manga-darkblack": "#131415"
       }
     },
   },
