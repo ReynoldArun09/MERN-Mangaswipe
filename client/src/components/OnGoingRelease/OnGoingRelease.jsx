@@ -3,13 +3,19 @@ import CustomWrapper from "../Custom/CustomWrapper";
 import { GetOnGoingManga } from "../../services/mangaApi";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import SkeletonOnGoing from '../Skeletons/SkeletonOnGoing'
 
 export default function OngoingRelease() {
   const [pages, setPages] = useState(5);
-  const { data: OnGoingData } = useQuery({
+  const { data: OnGoingData, isLoading } = useQuery({
     queryKey: ["on-going"],
     queryFn: GetOnGoingManga,
   });
+
+  if(isLoading) {
+    return <SkeletonOnGoing />
+  }
+
 
   return (
     <CustomWrapper title={"New OnGoing Release"} link={"on-going"}>

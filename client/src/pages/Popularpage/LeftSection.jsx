@@ -4,14 +4,19 @@ import { GetMostPopularMangaList } from "../../services/mangaApi";
 import { useState } from "react";
 import CustomSeparator from "../../components/Custom/CustomSeparator";
 import CustomPageWrapper from "../../components/Custom/CustomPageWrapper";
+import SkeletonPages from "../../components/Skeletons/SkeletonPages";
 
 export default function LeftSection() {
  
   const [page, setPage] = useState(1);
-  const { data: PopularDataList } = useQuery({
+  const { data: PopularDataList, isLoading } = useQuery({
     queryKey: ["popular-manga-list"],
     queryFn: () => GetMostPopularMangaList(page),
   });
+
+  if(isLoading) {
+    return <SkeletonPages />
+  }
 
   return (
     <CustomPageWrapper title="Popular Mangas">

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import {GetMangaByTitle} from '../../services/mangaApi'
 import CustomHelmet from '../../components/Custom/CustomHelmet'
+import SkeletonManga from '../../components/Skeletons/SkeletonManga'
 
 export default function Manga() {
   let { title } = useParams();
@@ -11,11 +12,15 @@ export default function Manga() {
   let newTitle;
   let nextchapter;
 
-  const {data:manga} = useQuery({
+  const {data:manga, isLoading} = useQuery({
     queryKey: ['manga', title],
     queryFn: () => GetMangaByTitle(title)
 })
 
+
+if(isLoading) {
+  return <SkeletonManga />
+}
 
   return (
     <>

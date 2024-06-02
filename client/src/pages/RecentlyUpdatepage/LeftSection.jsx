@@ -4,14 +4,19 @@ import { GetMostRecentMangaList } from "../../services/mangaApi";
 import { useState } from "react";
 import CustomSeparator from "../../components/Custom/CustomSeparator";
 import CustomPageWrapper from "../../components/Custom/CustomPageWrapper";
+import SkeletonPages from "../../components/Skeletons/SkeletonPages";
 
 export default function LeftSection() {
  
   const [page, setPage] = useState(1);
-  const { data: MostRecentData } = useQuery({
+  const { data: MostRecentData, isLoading } = useQuery({
     queryKey: ["most-recent-all"],
     queryFn: () => GetMostRecentMangaList(page),
   });
+
+  if(isLoading) {
+    return <SkeletonPages />
+  }
 
   return (
     <CustomPageWrapper title="Recently Updated Mangas">

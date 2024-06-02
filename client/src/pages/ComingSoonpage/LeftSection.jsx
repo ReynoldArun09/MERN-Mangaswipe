@@ -4,14 +4,19 @@ import { GetComingSoonMangaList } from "../../services/mangaApi";
 import { useState } from "react";
 import CustomSeparator from "../../components/Custom/CustomSeparator";
 import CustomPageWrapper from "../../components/Custom/CustomPageWrapper";
+import SkeletonPages from "../../components/Skeletons/SkeletonPages";
 
 export default function LeftSection() {
  
   const [page, setPage] = useState(1);
-  const { data: ComingSoonDataList } = useQuery({
+  const { data: ComingSoonDataList, isLoading } = useQuery({
     queryKey: ["coming-soon-all"],
     queryFn: () => GetComingSoonMangaList(page),
   });
+
+  if(isLoading) {
+    return <SkeletonPages />
+  }
 
   return (
     <CustomPageWrapper title="Coming Soon Manga">

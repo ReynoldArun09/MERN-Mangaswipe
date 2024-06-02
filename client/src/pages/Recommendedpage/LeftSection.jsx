@@ -4,14 +4,19 @@ import { GetMostRecommendedMangaList } from "../../services/mangaApi";
 import { useState } from "react";
 import CustomSeparator from "../../components/Custom/CustomSeparator";
 import CustomPageWrapper from "../../components/Custom/CustomPageWrapper";
+import SkeletonPages from '../../components/Skeletons/SkeletonPages'
 
 export default function LeftSection() {
  
   const [page, setPage] = useState(1);
-  const { data: MostRecommnedData } = useQuery({
+  const { data: MostRecommnedData, isLoading } = useQuery({
     queryKey: ["most-recommended-all"],
     queryFn: () => GetMostRecommendedMangaList(page),
   });
+
+  if(isLoading) {
+    return <SkeletonPages />
+  }
 
   return (
    <CustomPageWrapper title={"Most Recommended Mangas"}>

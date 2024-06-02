@@ -2,12 +2,16 @@ import { GetMostRecommendedMangas } from "../../services/mangaApi";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import CustomWrapper from "../Custom/CustomWrapper";
-
+import SkeletonGrid from '../Skeletons/SkeletonGrid'
 export default function MostRecommendedManga() {
-  const { data: mostrecommendedData } = useQuery({
+  const { data: mostrecommendedData, isLoading } = useQuery({
     queryKey: ["most-recommend"],
     queryFn: GetMostRecommendedMangas,
   });
+
+  if(isLoading) {
+    return <SkeletonGrid />
+  }
 
   return (
     <CustomWrapper title={"Most Recommended"} link={"most-recommended"}>

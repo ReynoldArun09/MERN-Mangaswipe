@@ -2,12 +2,17 @@ import CustomWrapper from "../Custom/CustomWrapper";
 import { GetMostPopularManga } from "../../services/mangaApi";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
+import SkeletonGrid from "../Skeletons/SkeletonGrid";
 
 export default function PopularManga() {
-  const { data: popularData } = useQuery({
+  const { data: popularData, isLoading } = useQuery({
     queryKey: ["most-pop"],
     queryFn: GetMostPopularManga,
   });
+
+  if(isLoading) {
+    return <SkeletonGrid />
+  }
 
   return (
     <section className="py-10">

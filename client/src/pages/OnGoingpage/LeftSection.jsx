@@ -4,13 +4,18 @@ import { GetOnGoingMangaList } from "../../services/mangaApi";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import CustomPageWrapper from "../../components/Custom/CustomPageWrapper";
+import SkeletonPages from "../../components/Skeletons/SkeletonPages";
 
 export default function LeftSection() {
   const [page, setPage] = useState(1);
-  const { data: ongoingData } = useQuery({
+  const { data: ongoingData, isLoading } = useQuery({
     queryKey: ["on-going-all", page],
     queryFn: () => GetOnGoingMangaList(page),
   });
+
+  if(isLoading) {
+    return <SkeletonPages />
+  }
 
   return (
     <CustomPageWrapper title={"On Going Mangas"}>

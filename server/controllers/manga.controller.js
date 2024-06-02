@@ -136,7 +136,7 @@ export const MostRecommendedManga = AsyncWrapper(async (req, res) => {
   const mangas = await Manga.find({ rating: { $gte: 4 } })
     .select({ mangaTitle: 1, likes: 1, mangaImageUrl: 1 })
     .sort({ rating: -1 })
-    .limit(10);
+    .limit(6);
 
   return res.status(200).json(mangas);
 });
@@ -170,8 +170,8 @@ export const MostRecommendedMangaAll = AsyncWrapper(async (req, res) => {
  */
 
 export const MostRecentManga = AsyncWrapper(async (req, res) => {
-  const mangas = await Manga.find()
-    .sort({ modifiedManga: -1 })
+  const mangas = await Manga.find({})
+    .sort({ modifiedManga: -1, views: 1 })
     .limit(6)
     .select({ mangaTitle: 1, mangaImageUrl: 1, status: 1, description: 1 });
 
@@ -189,8 +189,8 @@ export const MostRecentManga = AsyncWrapper(async (req, res) => {
 export const MostRecentMangaAll = AsyncWrapper(async (req, res) => {
   const page = parseInt(req.query.page) || 1;
   const limit = 20;
-  const mangas = await Manga.find({ rating: { $gte: 4 } })
-    .sort({ rarting: -1 })
+  const mangas = await Manga.find({})
+    .sort({ modifiedManga: -1, views: 1 })
     .skip((page - 1) * limit)
     .select({ mangaTitle: 1, mangaImageUrl: 1, chapters: 1, description: 1 })
     .limit(limit);
@@ -207,7 +207,7 @@ export const MostRecentMangaAll = AsyncWrapper(async (req, res) => {
  */
 
 export const MostPopularManga = AsyncWrapper(async (req, res) => {
-  const mangas = await Manga.find()
+  const mangas = await Manga.find({})
     .sort({ modifiedManga: -1 })
     .limit(5)
     .select({ mangaTitle: 1, mangaImageUrl: 1, status: 1, description: 1, likes: 1 });
@@ -217,7 +217,7 @@ export const MostPopularManga = AsyncWrapper(async (req, res) => {
 
 /**
  * Api = all most recent manga api
- * sort by raring
+ * sort by modified field
  * limit 20
  * returns only mangatitle, description, mangaimagurl, chapters
  * http://localhost:3000/api/v1/manga/most-popular-all
@@ -226,8 +226,8 @@ export const MostPopularManga = AsyncWrapper(async (req, res) => {
 export const MostPopularMangaAll = AsyncWrapper(async (req, res) => {
   const page = parseInt(req.query.page) || 1;
   const limit = 20;
-  const mangas = await Manga.find({ rating: { $gte: 4 } })
-    .sort({ rarting: -1 })
+  const mangas = await Manga.find({})
+    .sort({ modifiedManga: -1 })
     .skip((page - 1) * limit)
     .select({ mangaTitle: 1, mangaImageUrl: 1, chapters: 1, description: 1, likes: 1 })
     .limit(limit);
