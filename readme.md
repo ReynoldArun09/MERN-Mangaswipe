@@ -40,5 +40,5 @@ To get started with MangaSwipe, follow these steps:
 8. Create a `.env` file in the server directory with the following content:
     ```
     VITE_BASE_URL=your_backend_url
-9. Start the development server: `npm run dev`
+9. Start the development client: `npm run dev`
 10. Open your browser and visit `http://localhost:5173` to view the website.   ```
