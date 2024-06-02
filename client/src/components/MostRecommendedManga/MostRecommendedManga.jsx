@@ -23,7 +23,7 @@ export default function MostRecommendedManga() {
                   alt={mangaTitle}
                   className="w-44 h-64 rounded-md hover:scale-x-105 hover:scale-y-105"
                 />
-                <div className="text-sm font-bold">
+                <div className="text-sm font-bold text-black dark:text-white">
                   <h1 className="w-[180px] mt-2">{mangaTitle}</h1>
                   <p>
                     <i className="fa-solid fa-thumbs-up mr-1"></i> {newLikes}
