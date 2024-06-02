@@ -7,7 +7,7 @@ export default function ComingSoonpage() {
   return (
     <>
       <CustomHelmet
-        title={"Manga Swipe - Coming Soon"}
+        title={"Manga Swipe | Coming Soon Mangas"}
         href={"/coming-soon"}
         description={"website for reading latest manga"}
       />

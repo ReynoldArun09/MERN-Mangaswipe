@@ -6,7 +6,7 @@ export default function OnGoingpage() {
   return (
     <>
       <CustomHelmet
-        title={"Manga Swipe - Ongoing"}
+        title={"Manga Swipe | Ongoing Manags"}
         href={"/on-going"}
         description={"website for reading latest manga"}
       />

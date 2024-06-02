@@ -6,8 +6,8 @@ export default function Recommendedpage() {
   return (
     <>
       <CustomHelmet
-        title={"Manga Swipe - Recommended Page"}
-        href={"/on-going"}
+        title={"Manga Swipe - Most Recommended Page"}
+        href={"/most-recommended"}
         description={"website for reading latest manga"}
       />
       <section className="xl:flex xl:justify-between">

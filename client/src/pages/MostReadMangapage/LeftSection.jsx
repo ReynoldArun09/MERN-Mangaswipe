@@ -19,7 +19,7 @@ export default function LeftSection() {
   }
 
   return (
-    <CustomPageWrapper title={"Most Recommended Manga"}>
+    <CustomPageWrapper title={"Most Read Manga"}>
       <CustomSeparator />
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 my-[25px] min-h-[70vh]">
         {MostReadData?.map((data) => (

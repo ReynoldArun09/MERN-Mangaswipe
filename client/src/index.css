@@ -2,3 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer components {
+    .skeleton {
+        @apply bg-[#313131] overflow-hidden my-2 mx-0 rounded;
+    }
+
+    .card {
+        @apply w-[160px] h-[210px];
+    }
+
+    .skeletonTitle {
+        @apply w-[120px] h-[25px];
+    }
+
+    .skeletonSpan {
+        @apply w-[60px] h-[20px];
+    }
+
+    .cardTitle {
+        @apply w-[160px] h-[20px] my-2;
+    }
+
+    .container {
+        @apply relative;
+    }
+
+    .text {
+        @apply w-[200px] h-[240px] text-white;
+    }
+
+    .skelebtn {
+        @apply h-[2rem] w-[8rem]
+    }
+
+    .mangapage {
+        @apply w-[320px] my-10 h-[750px] md:w-[400px] lg:w-[550px] xl:w-[650px]
+    }
+
+}
