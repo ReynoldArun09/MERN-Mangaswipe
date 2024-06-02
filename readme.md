@@ -16,6 +16,11 @@ MangaSwipe is a website dedicated to providing manga/manhwa enthusiasts with an 
 - **Database**: MongoDB
 - **Deployment**: Netify, Render
 
+
+## 🔗 Links
+- Live: https://mangaswipe.netlify.app/
+- Code: https://github.com/ReynoldArun09/MERN-Mangaswipe
+
 ## Getting Started
 
 To get started with MangaSwipe, follow these steps:
